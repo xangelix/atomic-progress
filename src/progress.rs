@@ -164,6 +164,11 @@ impl Progress {
         self.position.fetch_add(amount.into(), Ordering::Relaxed);
     }
 
+    /// Increments the progress position by 1.
+    pub fn bump(&self) {
+        self.inc(1u64);
+    }
+
     /// Gets the current position.
     #[must_use]
     pub fn get_pos(&self) -> u64 {
