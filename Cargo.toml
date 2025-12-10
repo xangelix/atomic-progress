@@ -1,0 +1,30 @@
+[package]
+name = "atomic-progress"
+version = "0.1.0"
+edition = "2024"
+description = "A high-performance, cloneable progress tracker with minimal locking overhead."
+keywords = ["progress", "headless", "concurrent", "state", "atomic"]
+categories = [
+    "concurrency",
+    "data-structures",
+    "development-tools",
+    "command-line-interface",
+    "gui",
+]
+authors = ["Cody Wyatt Neiman (xangelix) <neiman@cody.to>"]
+license = "MIT"
+documentation = "https://docs.rs/atomic-progress"
+repository = "https://github.com/xangelix/atomic-progress"
+
+[features]
+default = []
+rkyv = ["dep:rkyv", "compact_str/rkyv"]
+serde = ["dep:serde", "compact_str/serde"]
+
+[dependencies]
+compact_str = "0.9"
+parking_lot = { version = "0.12", features = ["hardware-lock-elision"] }
+web-time = "1"
+
+rkyv = { version = "0.8", optional = true }
+serde = { version = "1", features = ["derive"], optional = true }
