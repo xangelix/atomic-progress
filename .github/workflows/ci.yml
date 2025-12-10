@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.com/xangelix-pub/containers/arch:latest
+      options: --user root # How I wish this were GitLab
 
     steps:
       - uses: actions/checkout@v6
