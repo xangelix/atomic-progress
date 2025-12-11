@@ -304,19 +304,27 @@ impl Progress {
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "rkyv", rkyv(derive(Debug, Eq, PartialEq)))]
 pub struct ProgressSnapshot {
-    kind: ProgressType,
+    /// The type of progress indicator.
+    pub kind: ProgressType,
 
-    name: CompactString,
-    item: CompactString,
+    /// The name/label of the progress task.
+    pub name: CompactString,
+    /// The current item description.
+    pub item: CompactString,
 
-    elapsed: Option<Duration>,
+    /// The elapsed duration.
+    pub elapsed: Option<Duration>,
 
-    position: u64,
-    total: u64,
+    /// The current position.
+    pub position: u64,
+    /// The total target count.
+    pub total: u64,
 
-    finished: bool,
+    /// Whether the task is finished.
+    pub finished: bool,
 
-    error: Option<CompactString>,
+    /// The associated error message, if any.
+    pub error: Option<CompactString>,
 }
 
 impl From<&Progress> for ProgressSnapshot {
