@@ -1,6 +1,6 @@
 [package]
 name = "atomic-progress"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 description = "A high-performance, cloneable progress tracker with minimal locking overhead."
 keywords = ["progress", "headless", "concurrent", "state", "atomic"]
