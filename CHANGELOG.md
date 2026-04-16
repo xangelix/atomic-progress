@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.4
+
+### Added
+
+- **Feat(api):** Re-exported `prettier_bytes::{ByteFormatter, Standard, Unit}` from the crate root when the `terminal` feature is enabled. This prevents a leaky abstraction and eliminates the need for downstream users to manually add `prettier-bytes` as a direct dependency to configure their progress output.
+
 ## v0.1.3
 
 ### Added
