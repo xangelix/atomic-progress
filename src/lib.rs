@@ -34,3 +34,8 @@ pub use stack::{ProgressStack, ProgressStackSnapshot};
 
 #[cfg(feature = "terminal")]
 pub use frontends::terminal::TerminalFrontend;
+
+// Re-export byte formatting primitives so consumers do not need to depend on
+// `prettier-bytes` directly just to configure the terminal output.
+#[cfg(feature = "terminal")]
+pub use prettier_bytes::{ByteFormatter, Standard, Unit};
