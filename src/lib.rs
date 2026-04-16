@@ -21,6 +21,7 @@
 #![deny(missing_docs)]
 
 pub mod builder;
+pub mod frontends;
 pub mod io;
 pub mod iter;
 pub mod progress;
@@ -30,3 +31,6 @@ pub use builder::ProgressBuilder;
 pub use iter::{ProgressIter, ProgressIteratorExt};
 pub use progress::{Progress, ProgressSnapshot, ProgressType};
 pub use stack::{ProgressStack, ProgressStackSnapshot};
+
+#[cfg(feature = "terminal")]
+pub use frontends::terminal::TerminalFrontend;

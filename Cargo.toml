@@ -17,7 +17,10 @@ documentation = "https://docs.rs/atomic-progress"
 repository = "https://github.com/xangelix/atomic-progress"
 
 [features]
-default = []
+default = ["terminal"]
+
+terminal = ["prettier-bytes"]
+
 rkyv = ["dep:rkyv", "compact_str/rkyv"]
 serde = ["dep:serde", "compact_str/serde"]
 
@@ -26,5 +29,12 @@ compact_str = "0.9"
 parking_lot = { version = "0.12", features = ["hardware-lock-elision"] }
 web-time = "1"
 
+# Optional dependencies for features
+
+## terminal
+prettier-bytes = { version = "0.2.0", optional = true }
+
+## rkyv
 rkyv = { version = "0.8", optional = true }
+## serde
 serde = { version = "1", features = ["derive"], optional = true }
