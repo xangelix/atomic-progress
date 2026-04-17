@@ -79,6 +79,25 @@ pub enum ProgressType {
     Bar,
 }
 
+/// Slightly dangerous, but convenient to derive inside larger structs.
+/// Be sure to only use this for debugging purposes, as it may not reflect the most up-to-date state if other threads are modifying it concurrently.
+/// This is not suitable for production code or any logic that relies on consistent state.
+impl std::fmt::Debug for Progress {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let cold = self.cold.read();
+        f.debug_struct("Progress")
+            .field("kind", &self.kind)
+            .field("start", &self.start)
+            .field("name", &cold.name)
+            .field("item", &self.item.read())
+            .field("position", &self.position.load(Ordering::Relaxed))
+            .field("total", &self.total.load(Ordering::Relaxed))
+            .field("finished", &self.finished.load(Ordering::Relaxed))
+            .field("error", &cold.error)
+            .finish()
+    }
+}
+
 impl Progress {
     /// Creates a new `Progress` instance.
     ///
