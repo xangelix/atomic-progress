@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.5
+
+- **Feat(progress):** Implement `std::fmt::Debug` for `Progress`, convenient but a bit dangerous
+
 ## v0.1.4
 
 ### Added
