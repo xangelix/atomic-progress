@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-      
+
       - name: Install Rust
         run: curl https://gitlab.com/xangelix-pub/init/-/raw/main/os/arch/rust.sh | sh
-      
+
       - name: Select stable Rust toolchain
         run: rustup default stable
 
