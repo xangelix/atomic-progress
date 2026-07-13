@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.6
+
+- **Chore(deps):** Bump all deps, including `compact_str` to v0.10
+
 ## v0.1.5
 
 - **Feat(progress):** Implement `std::fmt::Debug` for `Progress`, convenient but a bit dangerous
